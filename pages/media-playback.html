@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reproducción de Audio y Video</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Reproducción de Audio y Video</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <input type="file" id="mediaInput" accept="audio/*,video/*" />
+        <audio id="audioPlayer" controls style="display: none"></audio>
+        <video
+          id="videoPlayer"
+          controls
+          style="display: none; max-width: 100%"
+        ></video>
+        <div id="mediaStatus" class="output-area"></div>
+      </section>
+    </main>
+    <script src="../src/js/media-playback.js"></script>
+  </body>
+</html>

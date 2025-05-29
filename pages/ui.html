@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APIs de Interfaz de Usuario</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>APIs de Interfaz de Usuario</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <article>
+          <header>Fullscreen API</header>
+          <div id="fullscreenElementToToggle" class="output-area">
+            Este elemento puede ir a pantalla completa.
+          </div>
+          <button id="toggleFullscreenBtn">
+            Activar/Desactivar Pantalla Completa
+          </button>
+        </article>
+        <article>
+          <header>Clipboard API</header>
+          <input type="text" id="textToCopy" value="Texto para copiar" />
+          <button id="copyTextBtn">Copiar Texto</button>
+          <input type="text" id="pasteTarget" placeholder="Pega aquí" />
+          <button id="pasteTextBtn">Pegar desde Portapapeles</button>
+          <div id="clipboardStatus" class="output-area"></div>
+        </article>
+        <article>
+          <header>Drag and Drop API</header>
+          <div
+            id="draggableElement"
+            draggable="true"
+            class="bordered"
+            style="
+              width: 100px;
+              height: 100px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: grab;
+              background: #22c55e;
+              color: white;
+            "
+          >
+            Arrastrar
+          </div>
+          <div
+            id="dropZone"
+            class="bordered"
+            style="
+              width: 200px;
+              height: 150px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-top: 10px;
+              background: #f0f0f0;
+            "
+          >
+            Soltar aquí
+          </div>
+          <div id="dragDropStatus" class="output-area"></div>
+        </article>
+        <article>
+          <header>Dialog API</header>
+          <button id="showDialogBtn">Mostrar Diálogo</button>
+          <dialog id="myDialog">
+            <article>
+              <header>
+                <a
+                  href="#close"
+                  aria-label="Close"
+                  class="close"
+                  data-target="myDialog"
+                ></a>
+                Esto es un diálogo
+              </header>
+              <p>Puedes cerrarlo con el botón de abajo o la tecla Escape.</p>
+              <footer>
+                <button class="secondary" data-target="myDialog">
+                  Cancelar
+                </button>
+                <button data-target="myDialog">Confirmar (Cerrar)</button>
+              </footer>
+            </article>
+          </dialog>
+        </article>
+      </section>
+    </main>
+    <script src="../src/js/ui.js"></script>
+  </body>
+</html>

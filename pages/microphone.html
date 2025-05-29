@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acceso a Micrófono</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Acceso a Micrófono</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <button id="startRecBtn">Grabar</button>
+        <button id="stopRecBtn" disabled>Detener</button>
+        <audio id="audioPlayback" controls style="display: none"></audio>
+        <div id="micStatus" class="output-area"></div>
+      </section>
+    </main>
+    <script src="../src/js/microphone.js"></script>
+  </body>
+</html>

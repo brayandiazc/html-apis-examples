@@ -63,3 +63,49 @@ document
         "WebSocket no conectado. Conéctate primero.";
     }
   });
+// SSE
+const connectSSEBtn = document.getElementById("connectSSEBtn");
+const sseStatus = document.getElementById("sseStatus");
+let eventSource;
+if (connectSSEBtn) {
+  connectSSEBtn.addEventListener("click", () => {
+    if (eventSource && eventSource.readyState !== EventSource.CLOSED) {
+      sseStatus.textContent =
+        "Ya conectado a SSE. Cierra la conexión actual primero.";
+      return;
+    }
+    try {
+      eventSource = new EventSource(
+        "https://mdn.github.io/dom-examples/server-sent-events/sse.php"
+      );
+      sseStatus.innerHTML = "Intentando conectar a SSE...";
+      eventSource.onopen = () => {
+        sseStatus.innerHTML = "Conectado a Server-Sent Events.";
+      };
+      eventSource.onmessage = (event) => {
+        sseStatus.innerHTML += `<br>SSE Data: ${event.data}`;
+      };
+      eventSource.onerror = (err) => {
+        sseStatus.innerHTML =
+          "Error en Server-Sent Events. La conexión puede haberse cerrado o el servidor no está disponible.";
+        sseStatus.style.color = "var(--danger)";
+        eventSource.close();
+      };
+    } catch (e) {
+      sseStatus.textContent = `Error al iniciar SSE: ${e.message}`;
+    }
+  });
+}
+// Estado de conexión
+const onlineStatus = document.getElementById("onlineStatus");
+if (onlineStatus) {
+  const updateOnlineStatus = () => {
+    onlineStatus.textContent = navigator.onLine ? "En línea" : "Fuera de línea";
+    onlineStatus.style.color = navigator.onLine
+      ? "var(--success)"
+      : "var(--danger)";
+  };
+  window.addEventListener("online", updateOnlineStatus);
+  window.addEventListener("offline", updateOnlineStatus);
+  updateOnlineStatus();
+}

@@ -41,3 +41,52 @@ document.getElementById("showNotificationBtn").addEventListener("click", () => {
     document.getElementById("notificationStatus").style.color = "var(--danger)";
   }
 });
+// Vibration API
+document.getElementById("vibrateBtn").addEventListener("click", () => {
+  if (navigator.vibrate) {
+    navigator.vibrate(200);
+    document.getElementById("vibrationStatus").textContent =
+      "Vibración activada (si el dispositivo lo soporta).";
+  } else {
+    document.getElementById("vibrationStatus").textContent =
+      "API de Vibración no soportada.";
+  }
+});
+// Battery API
+document.getElementById("getBatteryStatusBtn").addEventListener("click", () => {
+  if (navigator.getBattery) {
+    navigator
+      .getBattery()
+      .then((battery) => {
+        let statusMsg = `Batería: ${battery.level * 100}%`;
+        statusMsg += battery.charging ? " (cargando)" : " (descargando)";
+        document.getElementById("batteryStatus").textContent = statusMsg;
+        battery.addEventListener(
+          "levelchange",
+          () =>
+            (document.getElementById(
+              "batteryStatus"
+            ).textContent = `Nivel de batería cambiado: ${
+              battery.level * 100
+            }%`)
+        );
+        battery.addEventListener(
+          "chargingchange",
+          () =>
+            (document.getElementById(
+              "batteryStatus"
+            ).textContent = `Estado de carga cambiado: ${
+              battery.charging ? "cargando" : "descargando"
+            }`)
+        );
+      })
+      .catch((err) => {
+        document.getElementById(
+          "batteryStatus"
+        ).textContent = `Error API Batería: ${err.message}`;
+      });
+  } else {
+    document.getElementById("batteryStatus").textContent =
+      "API de Batería no soportada o deshabilitada.";
+  }
+});

@@ -47,6 +47,19 @@
           <button id="getCookieBtn">Mostrar Cookies</button>
           <div id="cookieStatus" class="output-area"></div>
         </article>
+        <article>
+          <header>IndexedDB</header>
+          <input type="text" id="idbKey" placeholder="Clave" value="idbClave" />
+          <input
+            type="text"
+            id="idbValue"
+            placeholder="Valor"
+            value="idbValor"
+          />
+          <button id="saveToIndexedDBBtn">Guardar en IndexedDB</button>
+          <button id="loadFromIndexedDBBtn">Leer de IndexedDB</button>
+          <div id="indexedDBStatus" class="output-area"></div>
+        </article>
       </section>
     </main>
     <script src="../src/js/storage.js"></script>
