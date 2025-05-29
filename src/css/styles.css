@@ -1,0 +1,41 @@
+/* Canvas y otros elementos con borde */
+.bordered {
+  border: 1px solid #ccc;
+}
+
+/* Canvas fondo blanco y responsivo */
+.responsive-canvas {
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+/* Card grid layout para el index */
+.center-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.center-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Animaciones y elementos especiales */
+.animated-element {
+  width: 50px;
+  height: 50px;
+  background: #ec4899;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Área de salida para resultados y mensajes */
+.output-area {
+  min-height: 40px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--card-background-color, #f8f9fa);
+  margin-bottom: 1rem;
+  font-size: 1em;
+}
