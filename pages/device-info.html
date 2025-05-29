@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reconocimiento de Dispositivo y Posición</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Reconocimiento de Dispositivo y Posición</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <div class="output-area">
+          <strong>Tipo de dispositivo:</strong>
+          <span id="deviceType">Detectando...</span><br />
+          <strong>Orientación:</strong>
+          <span id="orientation">Detectando...</span><br />
+          <strong>Ángulos:</strong> <span id="angles">-</span>
+        </div>
+        <div
+          id="orientationHelp"
+          style="margin-top: 1rem; color: var(--muted-color)"
+        ></div>
+      </section>
+    </main>
+    <script src="../src/js/device-info.js"></script>
+  </body>
+</html>

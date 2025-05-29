@@ -7,9 +7,17 @@ let drawing = false;
 let lastX = 0;
 let lastY = 0;
 
+function getCanvasCoords(e) {
+  const rect = canvas.getBoundingClientRect();
+  return [
+    ((e.clientX - rect.left) / rect.width) * canvas.width,
+    ((e.clientY - rect.top) / rect.height) * canvas.height,
+  ];
+}
+
 function startDraw(e) {
   drawing = true;
-  [lastX, lastY] = [e.offsetX, e.offsetY];
+  [lastX, lastY] = getCanvasCoords(e);
 }
 
 function draw(e) {
@@ -19,9 +27,10 @@ function draw(e) {
   ctx.lineCap = "round";
   ctx.beginPath();
   ctx.moveTo(lastX, lastY);
-  ctx.lineTo(e.offsetX, e.offsetY);
+  const [x, y] = getCanvasCoords(e);
+  ctx.lineTo(x, y);
   ctx.stroke();
-  [lastX, lastY] = [e.offsetX, e.offsetY];
+  [lastX, lastY] = [x, y];
 }
 
 function stopDraw() {
