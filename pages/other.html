@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otras APIs</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Otras APIs útiles</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <article>
+          <header>Canvas API (básico)</header>
+          <canvas
+            id="miniCanvas"
+            width="300"
+            height="150"
+            class="bordered"
+          ></canvas>
+          <button id="drawOnMiniCanvasBtn">Dibujar en Canvas</button>
+        </article>
+        <article>
+          <header>WebGL (placeholder)</header>
+          <canvas
+            id="webglCanvasPlaceholder"
+            width="300"
+            height="150"
+            class="bordered"
+          ></canvas>
+          <div id="webglStatus" class="output-area"></div>
+        </article>
+        <article>
+          <header>Web Animations API</header>
+          <div id="animatedElement" class="animated-element"></div>
+          <button id="animateElementBtn">Animar Elemento</button>
+        </article>
+      </section>
+    </main>
+    <script src="../src/js/other.js"></script>
+  </body>
+</html>

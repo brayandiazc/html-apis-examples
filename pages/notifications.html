@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Notificaciones</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Notification API</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <button id="requestNotificationPermissionBtn">
+          Solicitar Permiso de Notificación
+        </button>
+        <button id="showNotificationBtn">Mostrar Notificación</button>
+        <div id="notificationStatus" class="output-area"></div>
+      </section>
+    </main>
+    <script src="../src/js/notifications.js"></script>
+  </body>
+</html>

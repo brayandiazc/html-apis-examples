@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Almacenamiento</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>APIs de Almacenamiento</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <article>
+          <header>LocalStorage y SessionStorage</header>
+          <input
+            type="text"
+            id="storageKey"
+            placeholder="Clave"
+            value="miClave"
+          />
+          <input
+            type="text"
+            id="storageValue"
+            placeholder="Valor"
+            value="miValor"
+          />
+          <button id="saveToLocalStorageBtn">Guardar en LocalStorage</button>
+          <button id="loadFromLocalStorageBtn">Cargar de LocalStorage</button>
+          <button id="saveToSessionStorageBtn">
+            Guardar en SessionStorage
+          </button>
+          <button id="loadFromSessionStorageBtn">
+            Cargar de SessionStorage
+          </button>
+          <div id="storageStatus" class="output-area"></div>
+        </article>
+        <article>
+          <header>Cookies API</header>
+          <button id="setCookieBtn">Establecer Cookie</button>
+          <button id="getCookieBtn">Mostrar Cookies</button>
+          <div id="cookieStatus" class="output-area"></div>
+        </article>
+      </section>
+    </main>
+    <script src="../src/js/storage.js"></script>
+  </body>
+</html>

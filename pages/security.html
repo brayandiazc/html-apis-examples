@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Seguridad</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>APIs de Seguridad</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <article>
+          <header>Credential Management API</header>
+          <button id="checkCredentialsBtn">
+            Verificar Credenciales (conceptual)
+          </button>
+          <div id="credentialStatus" class="output-area"></div>
+        </article>
+        <article>
+          <header>Permissions API</header>
+          <button id="queryPermissionGeoBtn">
+            Consultar Permiso de Geolocalización
+          </button>
+          <button id="queryPermissionNotificationsBtn">
+            Consultar Permiso de Notificaciones
+          </button>
+          <div id="permissionStatus" class="output-area"></div>
+        </article>
+      </section>
+    </main>
+    <script src="../src/js/security.js"></script>
+  </body>
+</html>

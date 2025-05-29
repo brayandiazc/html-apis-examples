@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo DOM</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>APIs del DOM</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <article>
+          <header>Document: querySelector, getElementById</header>
+          <div id="elementToChange" class="output-area">
+            Contenido original.
+          </div>
+          <button id="changeContentBtn">Cambiar Contenido</button>
+          <button id="changeByIdBtn">Cambiar por ID</button>
+        </article>
+        <article>
+          <header>Element, Node, Text: manipulación de nodos</header>
+          <div id="nodeManipulationArea" class="output-area"></div>
+          <button id="addNodeBtn">Añadir Nodo de Texto</button>
+          <button id="removeNodeBtn">Eliminar Último Nodo</button>
+        </article>
+        <article>
+          <header>Event: manejo de eventos</header>
+          <button id="eventButton">Haz clic aquí (Evento)</button>
+          <div id="eventOutput" class="output-area"></div>
+        </article>
+      </section>
+    </main>
+    <script src="../src/js/dom.js"></script>
+  </body>
+</html>

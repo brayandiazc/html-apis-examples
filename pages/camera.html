@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Cámara</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Acceso a la Cámara</h1>
+        <a href="../index.html">← Volver al menú principal</a>
+      </header>
+      <section>
+        <label for="cameraSelect">Selecciona la cámara:</label>
+        <select id="cameraSelect"></select>
+        <button id="startCameraBtn">Iniciar cámara</button>
+        <div id="cameraStatus" class="output-area"></div>
+        <video
+          id="cameraVideo"
+          autoplay
+          playsinline
+          class="bordered responsive-canvas"
+        ></video>
+      </section>
+    </main>
+    <script src="../src/js/camera.js"></script>
+  </body>
+</html>

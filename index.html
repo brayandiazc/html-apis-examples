@@ -1,17 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Demostración de Web APIs</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
   </head>
+
   <body>
-    <nav>
-      <li><a href="index.html">Index</a></li>
-      <li><a href="camara.html">Camara</a></li>
-      <li><a href="draganddrop.html">Drag and Drop</a></li>
-      <li><a href="geolocalizacion.html">Geolocalizacion</a></li>
-      <li><a href="localstorage.html">Local Storage</a></li>
-    </nav>
+    <main class="container">
+      <header class="center-header">
+        <h1>Demostración de Web APIs</h1>
+        <p>Explora ejemplos prácticos de las principales APIs del navegador.</p>
+      </header>
+      <section
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+          gap: 2rem;
+          max-width: 900px;
+          margin: 0 auto;
+        "
+      >
+        <article class="card">
+          <h2><a href="pages/dom.html">DOM</a></h2>
+          <p>
+            Manipula elementos HTML, nodos y eventos para crear interfaces
+            dinámicas e interactivas.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/canvas.html">Canvas</a></h2>
+          <p>
+            Dibuja gráficos, permite elegir color y grosor de línea, y crea
+            ilustraciones interactivas en 2D.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/camera.html">Cámara</a></h2>
+          <p>
+            Accede a la cámara del dispositivo, elige entre varias y muestra el
+            video en tiempo real.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/storage.html">Almacenamiento</a></h2>
+          <p>
+            Guarda y recupera datos usando LocalStorage, SessionStorage y
+            Cookies de forma sencilla.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/network.html">Red</a></h2>
+          <p>
+            Realiza peticiones HTTP con Fetch y prueba comunicación en tiempo
+            real con WebSocket.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/geo.html">Geolocalización</a></h2>
+          <p>
+            Obtén la ubicación actual del usuario usando la API de
+            geolocalización del navegador.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/file.html">Archivos</a></h2>
+          <p>
+            Selecciona archivos locales y muestra información básica como
+            nombre, tipo y tamaño.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/notifications.html">Notificaciones</a></h2>
+          <p>
+            Solicita permiso y muestra notificaciones nativas del sistema desde
+            el navegador.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/security.html">Seguridad</a></h2>
+          <p>
+            Consulta permisos y explora la API de gestión de credenciales del
+            navegador.
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="pages/other.html">Otras APIs</a></h2>
+          <p>
+            Ejemplos de Canvas básico, WebGL (placeholder) y animaciones con Web
+            Animations API.
+          </p>
+        </article>
+      </section>
+      <footer class="center-footer">
+        <small
+          >Proyecto de ejemplo usando
+          <a href="https://picocss.com/" target="_blank">Pico.css</a></small
+        >
+      </footer>
+    </main>
   </body>
 </html>
