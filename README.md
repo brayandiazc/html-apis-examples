@@ -6,9 +6,9 @@ Proyecto basado en [HTML5](https://developer.mozilla.org/es/docs/Web/HTML), [CSS
 
 ## 🖼️ Vista Previa
 
-| Inicio                    | Funcionalidad                   |
-| ------------------------- | ------------------------------- |
-| ![main](src/img/main.png) | ![feature](src/img/feature.gif) |
+| Inicio                     | Funcionalidad                   |
+| -------------------------- | ------------------------------- |
+| ![main](src/img/main.jpeg) | ![feature](src/img/feature.gif) |
 
 > **Nota:** Agrega capturas de pantalla en `src/img/` con los nombres `main.png` y `feature.gif` para mostrar la vista previa.
 
