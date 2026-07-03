@@ -45,10 +45,6 @@ los design tokens de [brayandiazc.com](https://brayandiazc.com), con tema claro/
 - ✅ Sistema de diseño propio, coherente con la marca.
 - ✅ Degradación elegante: si una API no está disponible, se comunica en pantalla.
 
-## Vista Previa
-
-![Vista previa de la Demostración de Web APIs](src/img/main.jpeg)
-
 ## Requisitos Previos
 
 - Un **navegador web moderno** (Chrome, Firefox, Edge o Safari) reciente.
