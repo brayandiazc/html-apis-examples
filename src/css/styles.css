@@ -1,41 +1,474 @@
-/* Canvas y otros elementos con borde */
-.bordered {
-  border: 1px solid #ccc;
+/* ==========================================================================
+   Demostración de Web APIs — Sistema de diseño
+   Tokens y estilo gráfico de brayandiazc.com (temas claro/oscuro).
+   Reemplaza a Pico.css: hoja de estilos autocontenida, sin dependencias.
+   ========================================================================== */
+
+/* — Design tokens — */
+:root,
+[data-theme="light"] {
+  --background: #fdfdfd;
+  --foreground: #282728;
+  --accent: #006cac;
+  --accent-contrast: #ffffff;
+  --muted: #e6e6e6;
+  --muted-foreground: #6b7280;
+  --border: #ece9e9;
+  --card: #ffffff;
+  --danger: #d33f2e;
+  --success: #1a7f4b;
+  --shadow: 0 12px 40px -18px rgb(0 0 0 / 0.25);
 }
 
-/* Canvas fondo blanco y responsivo */
+[data-theme="dark"] {
+  --background: #212737;
+  --foreground: #eaedf3;
+  --accent: #ff6b01;
+  --accent-contrast: #212737;
+  --muted: #343f60;
+  --muted-foreground: #afb9ca;
+  --border: #4a5578;
+  --card: #262c3f;
+  --danger: #ff8a75;
+  --success: #7ee2a8;
+  --shadow: 0 12px 40px -18px rgb(0 0 0 / 0.55);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Google Sans Code", ui-monospace, "SF Mono", Menlo, Consolas,
+    monospace;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* — Layout — */
+.container,
+main.container {
+  width: min(1080px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+  flex: 1;
+}
+
+/* — Tipografía — */
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--foreground);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background: var(--muted);
+  border-radius: 4px;
+  padding: 0.12em 0.4em;
+  font-family: inherit;
+  font-size: 0.9em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* — Cabecera de página — */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: min(1080px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header .brand {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
+.page-header .brand::before {
+  content: "// ";
+  color: var(--accent);
+}
+
+/* Cabecera semántica interna de cada demo (header dentro de main) */
+main > header {
+  margin-bottom: 2rem;
+}
+
+main > header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* — Toggle de tema — */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+  width: 2.4rem;
+  height: 2.4rem;
+  min-width: 2.4rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* — Home: rejilla de tarjetas — */
+.center-header {
+  text-align: center;
+  margin: 2.5rem 0 2.5rem;
+}
+
+.center-header p {
+  color: var(--muted-foreground);
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--card);
+  transition: transform 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.card h2::before {
+  content: "── ";
+  color: var(--accent);
+}
+
+.card h2 a {
+  color: var(--foreground);
+}
+
+.card:hover h2 a {
+  color: var(--accent);
+}
+
+.card p {
+  color: var(--muted-foreground);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* — Tarjetas / bloques de demo — */
+article {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: var(--card);
+}
+
+article > header {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+section {
+  margin-bottom: 1.5rem;
+}
+
+/* — Formularios y controles — */
+label {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.35rem;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.4rem;
+  accent-color: var(--accent);
+}
+
+input[type="file"] {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="color"] {
+  height: 2.6rem;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+  padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+/* — Botones — */
+button,
+.button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-radius: 8px;
+  padding: 0.6rem 1.25rem;
+  margin: 0 0.5rem 0.75rem 0;
+  cursor: pointer;
+  transition: filter 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+button:hover,
+.button:hover {
+  filter: brightness(1.1);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: none;
+}
+
+/* Variante secundaria (Pico usaba .secondary) */
+button.secondary,
+.secondary {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+button.secondary:hover {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  filter: none;
+}
+
+/* — Área de salida de resultados — */
+.output-area {
+  min-height: 44px;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--muted) 30%, var(--background));
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+/* — Canvas / multimedia — */
+.bordered {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
 .responsive-canvas {
   background: #fff;
   width: 100%;
   max-width: 100%;
   display: block;
+  border-radius: 8px;
 }
 
-/* Card grid layout para el index */
-.center-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.center-footer {
-  text-align: center;
-  margin-top: 2rem;
+canvas,
+video,
+audio,
+img {
+  max-width: 100%;
 }
 
-/* Animaciones y elementos especiales */
+video {
+  border-radius: 8px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* — Animaciones — */
 .animated-element {
   width: 50px;
   height: 50px;
-  background: #ec4899;
+  background: var(--accent);
   border-radius: 8px;
   margin-top: 1rem;
 }
 
-/* Área de salida para resultados y mensajes */
-.output-area {
-  min-height: 40px;
-  padding: 10px;
-  border-radius: 8px;
-  background: var(--card-background-color, #f8f9fa);
-  margin-bottom: 1rem;
-  font-size: 1em;
+/* — Diálogos nativos — */
+dialog {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: var(--shadow);
+  max-width: min(90vw, 480px);
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.5);
+  backdrop-filter: blur(2px);
+}
+
+dialog .close {
+  background: transparent;
+  color: var(--muted-foreground);
+  border-color: var(--border);
+}
+
+/* — Pie de página — */
+.center-footer,
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  text-align: center;
+}
+
+.center-footer small,
+.site-footer small {
+  display: block;
+  width: min(1080px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+}
+
+/* — Accesibilidad — */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
 }

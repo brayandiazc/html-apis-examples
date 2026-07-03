@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demostración de Web APIs</title>
+    <meta
+      name="description"
+      content="Ejemplos prácticos e interactivos de las principales APIs nativas del navegador: DOM, Canvas, cámara, almacenamiento, red, geolocalización y más. HTML, CSS y JavaScript, sin dependencias."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;700&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
     />
     <link rel="stylesheet" href="src/css/styles.css" />
+    <script src="src/js/theme.js"></script>
   </head>
 
   <body>
+    <header class="page-header">
+      <p class="brand">Web APIs</p>
+      <button type="button" class="theme-toggle" aria-label="Cambiar tema">
+        ☾
+      </button>
+    </header>
+
     <main class="container">
       <header class="center-header">
         <h1>Demostración de Web APIs</h1>
-        <p>Explora ejemplos prácticos de las principales APIs del navegador.</p>
+        <p>
+          Explora ejemplos prácticos e interactivos de las principales APIs
+          nativas del navegador. Solo HTML, CSS y JavaScript — sin backend ni
+          dependencias.
+        </p>
       </header>
-      <section
-        style="
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-          gap: 2rem;
-          max-width: 900px;
-          margin: 0 auto;
-        "
-      >
+
+      <section class="cards">
         <article class="card">
           <h2><a href="pages/dom.html">DOM</a></h2>
           <p>
@@ -36,7 +47,7 @@
         <article class="card">
           <h2><a href="pages/canvas.html">Canvas</a></h2>
           <p>
-            Dibuja gráficos, permite elegir color y grosor de línea, y crea
+            Dibuja gráficos, elige color y grosor de línea, y crea
             ilustraciones interactivas en 2D.
           </p>
         </article>
@@ -126,17 +137,20 @@
         <article class="card">
           <h2><a href="pages/ui.html">Interfaz de Usuario</a></h2>
           <p>
-            Ejemplos de Fullscreen, portapapeles, drag & drop y diálogos nativos
-            del navegador.
+            Ejemplos de Fullscreen, portapapeles, drag &amp; drop y diálogos
+            nativos del navegador.
           </p>
         </article>
       </section>
-      <footer class="center-footer">
-        <small
-          >Proyecto de ejemplo usando
-          <a href="https://picocss.com/" target="_blank">Pico.css</a></small
-        >
-      </footer>
     </main>
+
+    <footer class="site-footer">
+      <small>
+        ⌨️ con ❤️ por
+        <a href="https://brayandiazc.com" target="_blank" rel="noopener"
+          >Brayan Diaz C</a
+        >
+      </small>
+    </footer>
   </body>
 </html>
